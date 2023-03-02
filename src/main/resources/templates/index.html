@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TeamDay</title>
+<link rel="stylesheet" type="text/css" href="/css/main.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="/js/commonUtil.js"></script>
+<script src="/js/main.js"></script>
+</head>
+<body> 
+
+<div id="regex">
+	<h3>정규식사용 테이블</h3>
+	
+	<form id="regexForm" class="regexForm" method="post">
+		<table border="0" id="regexTbl" class="regexTbl">
+			<tr>
+				<th><label for="name">이름</label></th>
+				<td>
+					<input type="text" title="이름" id="name" class="reqed name conDel" name="name" value=""/>
+				</td>
+				<td>
+					<input type="text" title="이름정규식" id="nameReg" class="nameReg reg" name="nameReg" value=""/>
+				</td>
+				<td rowspan="7">
+					<input type="text" title="정규식속도확인" id="regSpeed" class="regSpeed reg" name="regSpeed" value=""/>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="url">URL</label></th>
+				<td>
+					<input type="text" title="URL" id="url" class="reqed url conDel" name="url" value=""/>
+				</td>
+				<td>
+					<input type="text" title="URL정규식" id="urlReg" class="urlReg reg" name="urlReg" value=""/>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="email">E-mail</label></th>
+				<td>
+					<input type="text" title="E-mail" id="email" class="reqed email conDel" name="email" value=""/>
+				</td>
+				<td>
+					<input type="text" title="E-mail정규식" id="emailReg" class="emailReg reg" name="emailReg" value=""/>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="password">비밀번호</label></th>
+				<td>
+					<input type="text" title="비밀번호" id="password" class="reqed pwd conDel"  name="password" value=""/>
+				</td>
+				<td>
+					<input type="text" title="비밀번호정규식" id="pwdReg" class="pwdReg reg" name="pwdReg" value=""/>
+				</td>
+			</tr>
+			<tr>
+			    <th><label for="phoneNumber">휴대전화번호</label></th>
+			    <td>
+			        <input type="text" title="휴대전화번호" id="phoneNumber" class="reqed phoneNum conDel" name="phoneNumber" value=""/>
+			    </td>
+			    <td rowspan="3">
+					<input type="text" title="휴대전화번호정규식" id="phoneNumReg" class="phoneNumReg reg" name="phoneNumReg" value=""/>
+				</td>
+			</tr>
+			<tr>
+			    <th><label for="residentNumer">주민등록번호</label></th>
+			    <td>
+			        <input type="text" title="주민등록번호" id="residentNumer" class="reqed num conDel" name="residentNumer" value=""/>
+			    </td>
+			</tr>
+			<tr>
+			    <th><label for="cardNumber">신용카드번호</label></th>
+			    <td>
+			        <input type="text" title="신용카드번호" id="cardNumber" class="reqed card conDel" name="cardNumber" value=""/>
+			    </td>
+			</tr>
+			<tr>
+			    <td colspan="2" align="center">
+		    		<input type="button" id="ckBtn" class="ckBtn" name="ckBtn" value="완료"/>
+		    		<input type="button" id="regBtn" class="regBtn" name="regBtn" value="정규식 / 속도 확인"/>
+			    </td>
+			</tr>
+		</table>
+	</form>
+</div>
+
+<div id="noRegex">
+	
+	<h3>IF 조건문 사용 테이블</h3>
+
+	<form id="ifForm" class="ifForm" method="post">
+		<table border="0" id="ifTbl" class="ifTbl">
+			<tr>
+				<th><label for="name2">이름</label></th>
+				<td>
+					<input type="text" title="이름" id="name2" class="name2 conDel2" name="name2" value="" required/>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="url2">URL</label></th>
+				<td>
+					<input type="text" title="URL" id="url2" class="url2" name="url2" value="" required/>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="email2">E-mail</label></th>
+				<td>
+					<input type="text" title="E-mail" id="email2" class="email2" name="email2" value="" required/>
+				</td>
+			</tr>
+			<tr>
+				<th><label for="password2">비밀번호</label></th>
+				<td>
+					<input type="text" title="비밀번호" id="password2" class="password2"  name="password2" value="" required/>
+				</td>
+			</tr>
+			<tr>
+			    <th><label for="phoneNumber2">휴대전화번호</label></th>
+			    <td>
+			        <input type="text" title="휴대전화번호" id="phoneNumber2" class="phoneNumber2" name="phoneNumber2" value="" required/>
+			    </td>
+			</tr>
+			<tr>
+			    <th><label for="residentNumer2">주민등록번호</label></th>
+			    <td>
+			        <input type="text" title="주민등록번호" id="residentNumer2" class="residentNumer2" name="residentNumer2" value="" required/>
+			    </td>
+			</tr>
+			<tr>
+			    <th><label for="cardNumber2">신용카드번호</label></th>
+			    <td>
+			        <input type="text" title="신용카드번호" id="cardNumber2" class="cardNumber2" name="cardNumber2" value="" required/>
+			    </td>
+			</tr>
+			<tr>
+			    <td colspan="2" align="center">
+		    		<input type="button" id="ckBtn2" class="ckBtn2" name="ckBtn2" value="완료"/>
+		    		<input type="button" id="ifBtn" class="ifBtn" name="ifBtn" value="IF조건 / 속도 확인"/>
+			    </td>
+			</tr>
+		</table>
+	</form>
+</div>
+
+
+</body>
+</html>

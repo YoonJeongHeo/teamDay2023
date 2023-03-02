@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.reg {
+	border: 0; margin-left: 20px; width:500px;
+}
+
+.ckBtn, .ckBtn2 {
+	padding: 0px 50px;
+}
+
+.regBtn, .ifBtn {
+	padding: 0px 20px;
+}
