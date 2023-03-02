@@ -8,7 +8,13 @@
 	<!-- 정규식 등록 -->
 	<insert id="regexInsert" parameterType="hashMap">
 		insert into regexTbl(name, url, email, password, phoneNumber, residentNumer, CardNumber) 
-			VALUES(#{name}, #{url}, #{email}, #{password}, #{phoneNumber}, #{residentNumer}, #{cardNumber})
+			values(#{name}, #{url}, #{email}, #{password}, #{phoneNumber}, #{residentNumer}, #{cardNumber})
+	</insert>
+	
+	<!-- if조건 등록 -->
+	<insert id="ifInsert" parameterType="hashMap">
+		insert into ifTbl(name, url, email, password, phoneNumber, residentNumer, CardNumber) 
+			values(#{name2}, #{url2}, #{email2}, #{password2}, #{phoneNumber2}, #{residentNumer2}, #{cardNumber2})
 	</insert>
 	
 </mapper>

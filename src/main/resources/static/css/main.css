@@ -11,3 +11,7 @@
 .regBtn, .ifBtn {
 	padding: 0px 20px;
 }
+
+.ifConditionText {
+	border: 0;
+}

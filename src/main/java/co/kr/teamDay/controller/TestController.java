@@ -22,11 +22,33 @@ public class TestController {
 		return "index";
 	}
 	
-	//정규식 등록
+	//정규식 등록 - 스크립트
 	@PostMapping("/regexInsert")
 	@ResponseBody
 	public Object regexInsert(@RequestBody Map<String,Object> paramsMap) {
 		return service.regexInsert(paramsMap);
+	}
+	
+	//정규식 등록 - 자바
+	@PostMapping("/regexInsertJava")
+	@ResponseBody
+	public Object regexInsertJava(@RequestBody Map<String,Object> paramsMap) {
+		return service.regexInsertJava(paramsMap);
+	}
+	
+	//if조건 등록 - 스크립트
+	@PostMapping("/ifInsert")
+	@ResponseBody
+	public Object ifInsert(@RequestBody Map<String,Object> paramsMap) {
+		return service.ifInsert(paramsMap);
+	}
+	
+	//if조건 등록 - 자바
+	@PostMapping("/ifInsertJava")
+	@ResponseBody
+	public Object ifInsertJava(@RequestBody Map<String,Object> paramsMap) {
+		System.out.println("controller : " + paramsMap);
+		return service.ifInsertJava(paramsMap);
 	}
 	
 	

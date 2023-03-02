@@ -16,9 +16,9 @@
 	<form id="regexForm" class="regexForm" method="post">
 		<table border="0" id="regexTbl" class="regexTbl">
 			<tr>
-				<th><label for="name">이름</label></th>
+				<th><label for="name">영문자</label></th>
 				<td>
-					<input type="text" title="이름" id="name" class="reqed name conDel" name="name" value=""/>
+					<input type="text" title="영문자" id="name" class="reqed name conDel" name="name" value=""/>
 				</td>
 				<td>
 					<input type="text" title="이름정규식" id="nameReg" class="nameReg reg" name="nameReg" value=""/>
@@ -92,45 +92,48 @@
 	<form id="ifForm" class="ifForm" method="post">
 		<table border="0" id="ifTbl" class="ifTbl">
 			<tr>
-				<th><label for="name2">이름</label></th>
+				<th><label for="name2">영문자</label></th>
 				<td>
-					<input type="text" title="이름" id="name2" class="name2 conDel2" name="name2" value="" required/>
+					<input type="text" title="영문자" id="name2" class="name2 conDel2" name="name2" value="" required/>
+				</td>
+				<td rowspan="7">
+					<input type="text" title="IF조건속도확인" id="ifSpeed" class="ifSpeed reg" name="ifSpeed" value=""/>
 				</td>
 			</tr>
 			<tr>
 				<th><label for="url2">URL</label></th>
 				<td>
-					<input type="text" title="URL" id="url2" class="url2" name="url2" value="" required/>
+					<input type="text" title="URL" id="url2" class="url2 conDel2" name="url2" value="" required/>
 				</td>
 			</tr>
 			<tr>
 				<th><label for="email2">E-mail</label></th>
 				<td>
-					<input type="text" title="E-mail" id="email2" class="email2" name="email2" value="" required/>
+					<input type="text" title="E-mail" id="email2" class="email2 conDel2" name="email2" value="" required/>
 				</td>
 			</tr>
 			<tr>
 				<th><label for="password2">비밀번호</label></th>
 				<td>
-					<input type="text" title="비밀번호" id="password2" class="password2"  name="password2" value="" required/>
+					<input type="text" title="비밀번호" id="password2" class="password2 conDel2"  name="password2" value="" required/>
 				</td>
 			</tr>
 			<tr>
 			    <th><label for="phoneNumber2">휴대전화번호</label></th>
 			    <td>
-			        <input type="text" title="휴대전화번호" id="phoneNumber2" class="phoneNumber2" name="phoneNumber2" value="" required/>
+			        <input type="text" title="휴대전화번호" id="phoneNumber2" class="phoneNumber2 conDel2" name="phoneNumber2" value="" required/>
 			    </td>
 			</tr>
 			<tr>
 			    <th><label for="residentNumer2">주민등록번호</label></th>
 			    <td>
-			        <input type="text" title="주민등록번호" id="residentNumer2" class="residentNumer2" name="residentNumer2" value="" required/>
+			        <input type="text" title="주민등록번호" id="residentNumer2" class="residentNumer2 conDel2" name="residentNumer2" value="" required/>
 			    </td>
 			</tr>
 			<tr>
 			    <th><label for="cardNumber2">신용카드번호</label></th>
 			    <td>
-			        <input type="text" title="신용카드번호" id="cardNumber2" class="cardNumber2" name="cardNumber2" value="" required/>
+			        <input type="text" title="신용카드번호" id="cardNumber2" class="cardNumber2 conDel2" name="cardNumber2" value="" required/>
 			    </td>
 			</tr>
 			<tr>

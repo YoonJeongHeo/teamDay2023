@@ -9,5 +9,8 @@ public interface TestMapper {
 	
 	//정규식 등록
 	public int regexInsert(Map<String, Object> paramsMap);
+	
+	//if조건 등록
+	public int ifInsert(Map<String, Object> paramsMap);
 
 }
