@@ -131,6 +131,51 @@ public class TestServiceImpl implements TestService{
 		}
 		return result;
 	}
+	
+	//정규식 등록 - 쿼리
+	@Override
+	public Map<String, Object> regexInsertQuery(Map<String, Object> paramsMap) {
+		Map<String, Object> result = new HashMap<>();
+		
+		if(mapper.regexInsertQuery(paramsMap)>0) {
+			if(mapper.regexSelectQuery(paramsMap) >0) {
+				
+				String phone = (String) paramsMap.get("phoneNumber");
+				if (phone.length() == 10) {
+					phone = phone.substring(0, 3) + "-" + phone.substring(3, 7) + "-" + phone.substring(7, 11);
+					paramsMap.put("phoneNumber", phone);
+				} else if (phone.length() == 11) {
+					phone = phone.substring(0, 3) + "-" + phone.substring(3, 7) + "-" + phone.substring(7, 11);
+					paramsMap.put("phoneNumber", phone);
+				}
+						
+				String number = (String) paramsMap.get("residentNumer");
+				if (number.length() == 13) {
+					number = number.substring(0, 6) + "-" + number.substring(6, 13);
+					paramsMap.put("residentNumer", number);
+				}
+				
+				if(mapper.regexInsert(paramsMap)>0) {
+					mapper.regexDelectQuery(paramsMap);
+					result.put(SUCCESS, true);
+					result.put(MESSAGE, "정상적으로 등록이 되었습니다.");
+				} else {
+					mapper.regexDelectQuery(paramsMap);
+					result.put(SUCCESS, false);
+					result.put(MESSAGE, "등록 오류 입니다.");
+				}
+			} else {
+				mapper.regexDelectQuery(paramsMap);
+				result.put(SUCCESS, false);
+				result.put(MESSAGE, "등록 오류 입니다.");
+			}
+		} else {
+			result.put(SUCCESS, false);
+			result.put(MESSAGE, "등록 오류 입니다.");
+		}
+		
+		return result;
+	}
 
 	//if조건 등록 - 스크립트
 	@Override
@@ -315,7 +360,6 @@ public class TestServiceImpl implements TestService{
 			}
 		}
 		
-		System.out.println("IMPL : " + paramsMap);
 		if(mapper.ifInsert(paramsMap)>0) {
 			result.put(SUCCESS, true);
 			result.put(MESSAGE, "정상적으로 등록이 되었습니다.");
@@ -325,6 +369,8 @@ public class TestServiceImpl implements TestService{
 		}
 		return result;
 	}
+
+	
 
 
 	

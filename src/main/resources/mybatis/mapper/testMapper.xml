@@ -4,12 +4,37 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="co.kr.teamDay.mapper.TestMapper">
-
+	
 	<!-- 정규식 등록 -->
 	<insert id="regexInsert" parameterType="hashMap">
 		insert into regexTbl(name, url, email, password, phoneNumber, residentNumer, CardNumber) 
 			values(#{name}, #{url}, #{email}, #{password}, #{phoneNumber}, #{residentNumer}, #{cardNumber})
 	</insert>
+	
+	<!-- 쿼리 정규식 등록 (임시테이블) -->
+	<insert id="regexInsertQuery" parameterType="hashMap">
+		insert into regexQueryTbl(name, url, email, password, phoneNumber, residentNumer, CardNumber) 
+			values(#{name}, #{url}, #{email}, #{password}, #{phoneNumber}, #{residentNumer}, #{cardNumber})
+	</insert>
+	
+	<!-- 쿼리 정규식 일치확인 (임시테이블) -->
+	<select id="regexSelectQuery" parameterType="hashMap" resultType="integer">
+		select count(*) 
+		from regexQueryTbl 
+		where 1 = 1
+		   and name regexp '^[a-zA-Z가-힣]*$'
+		   and url regexp '[(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=%@!\-\/]))?]'
+		   and email regexp '^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$'
+		   and password regexp '^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*])[a-zA-Z0-9!@#$%^*]{8,}$'
+		   and phoneNumber regexp '^[0-9]*$'
+		   and residentNumer regexp '^[0-9]*$'
+		   and CardNumber regexp '^[0-9]*$'
+	</select>
+	
+	<!-- 쿼리 정규식 삭제 (임시테이블) -->
+	<delete id="regexDelectQuery" parameterType="hashMap">
+		delete from regexQueryTbl where name = #{name}
+	</delete>
 	
 	<!-- if조건 등록 -->
 	<insert id="ifInsert" parameterType="hashMap">

@@ -8,10 +8,10 @@
 		$info.ui.pageLoad();
 	});
 	
-	var regSpeedMs;
-	var regSpeedS;
-	var ifSpeedMs;
-	var ifSpeedS;
+	var regSpeedMs = 0;
+	var regSpeedS = 0;
+	var ifSpeedMs = 0;
+	var ifSpeedS = 0;
 	var flag = true;
 	
 	$info.ui = {
@@ -22,8 +22,11 @@
 				var startReg = performance.now();
 				//스크립트
 //				$info.event.regexFun();
-				//자바단
-				$info.event.regexFun2();
+				$info.event.regexFun1();
+				//자바
+//				$info.event.regexFun2();
+				//쿼리
+//				$info.event.regexFun3();
 				var endReg = performance.now();
 				regSpeedMs = endReg - startReg;
 				regSpeedS = regSpeedMs/1000;
@@ -37,7 +40,7 @@
 				var startIf = performance.now();
 				//스크립트
 //				$info.event.ifFun();
-				//자바단
+				//자바
 				$info.event.ifFun2();
 				var endIf = performance.now();
 				ifSpeedMs = endIf - startIf;
@@ -82,12 +85,12 @@
 			$('input[name=emailReg]').attr('value',"/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/");
 			$('input[name=pwdReg]').attr('value',"/^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/");
 			$('input[name=phoneNumReg]').attr('value',"/^[0-9]*$/");
-			$('input[name=regSpeed]').attr('value',regSpeedMs.toFixed(1)+'ms / ' + regSpeedS.toFixed(1)+'s');
+			$('input[name=regSpeed]').attr('value',regSpeedMs.toFixed(3)+'ms / ' + regSpeedS.toFixed(3)+'s');
 		},
 		
 		// IF 표현
 		ifCondition : function() {
-			$('input[name=ifSpeed]').attr('value',ifSpeedMs.toFixed(1)+'ms / ' + ifSpeedS.toFixed(1)+'s');
+			$('input[name=ifSpeed]').attr('value',ifSpeedMs.toFixed(3)+'ms / ' + ifSpeedS.toFixed(3)+'s');
 		},
 		
 		
@@ -356,7 +359,7 @@
 			}
 		},
 		
-		// 정규식 사용 - 자바단
+		// 정규식 사용 - 자바
 		regexFun2 : function() {
 			var regexForm = fn_getFormData($('#regexForm'));
 			if(confirm("등록 하시겠습니까?")) {
@@ -367,6 +370,47 @@
 					}else {
 						alert(data.message);
 						$('.conDel').val('');
+					}
+				});
+			}
+		},
+		
+		// 정규식 사용 - 쿼리
+		regexFun3 : function() {
+			var regexForm = fn_getFormData($('#regexForm'));
+			if(confirm("등록 하시겠습니까?")) {
+				ajax('/regexInsertQuery', regexForm, function (data) {
+					if(data.success) {
+						alert(data.message);
+//						$('.conDel').val('');
+					}else {
+						alert(data.message);
+//						$('.conDel').val('');
+					}
+				});
+			}
+		},
+		
+		// 정규식 사용 - test
+		regexFun1 : function() {
+			
+			var regString = /\w/;
+
+			 if(!regString.test($( '.name' ).val())) {
+				 alert($( '.name' ).attr("title")+"은(는) 영,문자만 입력해주세요.");
+				 $( '.name' ).focus();
+				 return false;
+			 }
+			
+			var regexForm = fn_getFormData($('#regexForm'));
+			if(confirm("등록 하시겠습니까?")) {
+				ajax('/regexInsertQuery', regexForm, function (data) {
+					if(data.success) {
+						alert(data.message);
+//						$('.conDel').val('');
+					}else {
+						alert(data.message);
+//						$('.conDel').val('');
 					}
 				});
 			}

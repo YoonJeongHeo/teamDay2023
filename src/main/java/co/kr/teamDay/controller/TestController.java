@@ -36,6 +36,13 @@ public class TestController {
 		return service.regexInsertJava(paramsMap);
 	}
 	
+	//정규식 등록 - 쿼리
+	@PostMapping("/regexInsertQuery")
+	@ResponseBody
+	public Object regexInsertQuery(@RequestBody Map<String,Object> paramsMap) {
+		return service.regexInsertQuery(paramsMap);
+	}
+	
 	//if조건 등록 - 스크립트
 	@PostMapping("/ifInsert")
 	@ResponseBody
@@ -47,7 +54,6 @@ public class TestController {
 	@PostMapping("/ifInsertJava")
 	@ResponseBody
 	public Object ifInsertJava(@RequestBody Map<String,Object> paramsMap) {
-		System.out.println("controller ifInsertJava : " + paramsMap);
 		return service.ifInsertJava(paramsMap);
 	}
 	
