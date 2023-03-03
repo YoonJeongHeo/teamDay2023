@@ -184,8 +184,8 @@
 //					}
 //				}
 //			});
-			var pwdSize = $('.password2').val();
 			var password = $('.password2').val();
+			var pwdSize = password.length;
 			var pwdSpecialchar = ['`','~','(',')','_','-','=','+','[','{',']','}',
 								   ';',':','"',"'",',','<','.','>','/','?','\\','|'];
 			

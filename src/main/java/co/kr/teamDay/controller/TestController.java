@@ -47,7 +47,7 @@ public class TestController {
 	@PostMapping("/ifInsertJava")
 	@ResponseBody
 	public Object ifInsertJava(@RequestBody Map<String,Object> paramsMap) {
-		System.out.println("controller : " + paramsMap);
+		System.out.println("controller ifInsertJava : " + paramsMap);
 		return service.ifInsertJava(paramsMap);
 	}
 	
