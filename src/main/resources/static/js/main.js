@@ -21,8 +21,8 @@
 			$('#ckBtn').on("click", function() {
 				var startReg = performance.now();
 				//스크립트
-//				$info.event.regexFun();
-				$info.event.regexFun1();
+				$info.event.regexFun();
+//				$info.event.regexFun1();
 				//자바
 //				$info.event.regexFun2();
 				//쿼리
@@ -39,9 +39,9 @@
 			$('#ckBtn2').on("click", function() {
 				var startIf = performance.now();
 				//스크립트
-//				$info.event.ifFun();
+				$info.event.ifFun();
 				//자바
-				$info.event.ifFun2();
+//				$info.event.ifFun2();
 				var endIf = performance.now();
 				ifSpeedMs = endIf - startIf;
 				ifSpeedS = ifSpeedMs/1000;
@@ -90,6 +90,13 @@
 		
 		// IF 표현
 		ifCondition : function() {
+//			$('input[name=nameReg2]').attr('value',"for(var i=0; i<10; i++) {");
+//			$('input[name=urlReg2]').attr('value',"     if(name.indexOf(i) > -1) {");
+//			$('input[name=emailReg2]').attr('value',"          alert($('input[name=name2]').attr('title')+'은(는) 영,문자만 입력해주세요.');");
+//			$('input[name=pwdReg2]').attr('value',"          return");
+//			$('input[name=phoneNumReg2]').attr('value',"     }");
+//			$('input[name=rNumReg2]').attr('value',"}");
+			$('input[name=nameReg2]').attr('value'," ");
 			$('input[name=ifSpeed]').attr('value',ifSpeedMs.toFixed(3)+'ms / ' + ifSpeedS.toFixed(3)+'s');
 		},
 		
@@ -104,7 +111,8 @@
 //				}
 //			});
 			var name = $('.name2').val();
-			var nameSpecialchar = ['`','~','!','@','#','$','%','^','&','*','(',')','_','-','=','+','[','{',']','}',
+			var nameSpecialchar = ['`','~','!','@','#','$','%','^','&','*','(',')',
+								   '_','-','=','+','[','{',']','}',
 								   ';',':','"',"'",',','<','.','>','/','?','\\','|'];
 			
 			for(var i=0; i<10; i++) {
